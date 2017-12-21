@@ -5,6 +5,7 @@
       <list>
         <ServerConfiguration>
           <option name="connectOnIdeStartup" value="true" />
+          <option name="label" value="mongodb" />
           <option name="serverUrls">
             <list>
               <option value="localhost:27017" />
@@ -16,6 +17,6 @@
         </ServerConfiguration>
       </list>
     </option>
-    <option name="shellPath" value="/usr/bin/mongo" />
+    <option name="shellPath" value="C:\Program Files\MongoDB\Server\3.6\bin\mongo.exe" />
   </component>
 </project>
