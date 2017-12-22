@@ -17,7 +17,7 @@ headers = {
 def get_job_info(page, kd):  # 获取数据
     for i in range(page):
         url = 'https://www.lagou.com/jobs/positionAjax.json?city=上海&needAddtionalResult=false&isSchoolJob=0'  # 直接请求的json
-        payload = {  # 要发送的翻页数据
+        payload = {  # 要随post发送的查询数据
             'first': 'false',
             'pn': i,
             'kd': kd,
