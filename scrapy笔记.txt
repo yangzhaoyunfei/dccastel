@@ -1,7 +1,9 @@
-新建project,生成爬虫
-scrapy startproject xxx
+创建project
+scrapy startproject 项目名
 cd xxx
-scrapy genspider example example.com
+
+创建爬虫
+scrapy genspider 爬虫名 example.com（主域名）
 
 
 启动爬虫(生产环境用)
@@ -9,27 +11,25 @@ scrapy crawl 爬虫名
 
 开发环境启动爬虫
 用一个文件来启动
-选择器返回的一般是List类型,需要 index 去拿出文本结果
-css选择器
-.xx 选择class='xx'的所有元素
- #nn 选择沐='nn'的元素
-p 选择所有<p>元素
-div,p 选择所有<div>和<p>元素
-div p 选择<p>元素,但上层有<div>元素
-div > p 选择<p>元素，但直接父元素为<div>的
-如: sel.css('.xx'), sel.css('#xx'), sel.css('div p')
-器返回的selector-list上调用extract()方法去掉selector这层ar壳,提取其中的文本行到string-list
 
-Xpath 使用[路径表达式]在 XML 文档中选取节点,节点是通过沿着路径或者step来选取的。 一级级下潜的,如:
-sel.xpath(‘/html/body/ul/li’) 严格的文件夹路径形式
-sel.xpath(‘//li’) 查找所有的li标签,而不管层级关系
-sel.xpath(‘//li’)[2].xpath(‘./p’)[0] 查找第三个li标签下的第一个p标签,后一个xpath中的'.'续上了前面的路径,'..'返回上层路径,取元素内的文要用/text(),取元素的属性用@属性名
 
-卧槽,pyquery,是封装过的css选择器, 不用脱壳,返回的是元素的List,获取文本用取元素内的文要用.text(),取元素的属性用.attr('属性名')
+css选择器--返回的是一个selectorlist,selector中有element，需要使用extract()去掉selector这个外壳，从而获得element在对元素使用/text(),@href等获取目标信息
+    .xx 选择class='xx'的所有元素
+     #nn 选择沐='nn'的元素
+    p 选择所有<p>元素
+    div,p 选择所有<div>和<p>元素
+    div p 选择<p>元素,但上层有<div>元素
+    div > p 选择<p>元素，但直接父元素为<div>的
+    如: sel.css('.xx'), sel.css('#xx'), sel.css('div p')
 
-jpy(‘.top’).text() #查找class=‘top’的元素的文本
+Xpath选择器--使用[路径表达式]在 XML 文档中选取节点,节点是通过沿着路径或者step来选取的。 一级级下潜的,如:
+    sel.xpath(‘/html/body/ul/li’) 严格的文件夹路径形式
+    sel.xpath(‘//li’) 查找所有的li标签,而不管层级关系
+    sel.xpath(‘//li’)[2].xpath(‘./p’)[0] 查找第三个li标签下的第一个p标签,后一个xpath中的'.'续上了前面的路径,'..'返回上层路径,取元素内的文要用/text(),取元素的属性用@属性名
 
-jpy(‘.top’).attr(‘class’) #查找class=‘top’的元素的class属性：
+pyquery选择器--是封装过的css选择器, 已经脱壳,返回的是elmentList,获取元素内容用.text(),取元素属性用.attr('属性名')
+    jpy(‘.top’).text() #查找class=‘top’的元素的文本
+    jpy(‘.top’).attr(‘class’) #查找class=‘top’的元素的class属性：
 
 
 

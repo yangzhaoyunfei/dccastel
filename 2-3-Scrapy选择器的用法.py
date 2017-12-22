@@ -6,4 +6,6 @@ with open('index.html', encoding='utf-8') as f:
     print(html)
     sel = Selector(text=html)
     jpy = PyQuery(html)
+    #xpath
+    #re
     pass
